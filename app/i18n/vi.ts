@@ -6,11 +6,6 @@ const vi: Translations = {
     cancel: "Huỷ",
     back: "Quay lại",
   },
-  welcomeScreen: {
-    postscript: "EventHub — Khám phá & đặt vé sự kiện tại TP. Hồ Chí Minh.",
-    readyForLaunch: "Sẵn sàng khám phá!",
-    exciting: "(Thú vị lắm đây!)",
-  },
   errorScreen: {
     title: "Đã xảy ra lỗi!",
     friendlySubtitle:
@@ -20,13 +15,13 @@ const vi: Translations = {
   emptyStateComponent: {
     generic: {
       heading: "Chưa có dữ liệu",
-      content: "Không tìm thấy dữ liệu. Thử làm mới hoặc tải lại ứng dụng.",
+      content: "Không tìm thấy dữ liệu. Thử làm mới hoặc quay lại sau.",
       button: "Thử lại",
     },
   },
 }
 
-// Các namespace cho EventHub sẽ thêm vào đây theo từng Phase:
+// Các namespace cho EventHub sẽ thêm vào theo từng Phase:
 // - authScreen: { login, register, forgotPassword }
 // - homeScreen: { trending, upcoming, seeAll }
 // - eventDetail: { bookNow, soldOut, about, venue, schedule }

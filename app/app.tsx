@@ -36,22 +36,17 @@ export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 
 // Web linking configuration
 const prefix = Linking.createURL("/")
+// Deep linking config — eventhub:// scheme
+// Screens sẽ thêm vào theo từng Phase (xem SPEC.md Section 11)
 const config = {
   screens: {
-    Login: {
-      path: "",
-    },
-    Welcome: "welcome",
-    Demo: {
-      screens: {
-        DemoShowroom: {
-          path: "showroom/:queryIndex?/:itemIndex?",
-        },
-        DemoDebug: "debug",
-        DemoPodcastList: "podcast",
-        DemoCommunity: "community",
-      },
-    },
+    Placeholder: "",
+    // Phase 1+ screens sẽ thêm ở đây:
+    // Login: "login",
+    // Register: "register",
+    // EventDetail: "event/:id",
+    // TicketDetail: "ticket/:id",
+    // BookingConfirmation: "booking/:id",
   },
 }
 
