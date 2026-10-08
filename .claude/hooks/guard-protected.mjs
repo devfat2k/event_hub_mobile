@@ -10,7 +10,14 @@ const PROTECTED = [
   /(^|\/)\.env(\.(?!example$)[^/]*)?$/,
   /(^|\/)bun\.lockb?$/,
 ];
-const DANGEROUS = [/\brm\s+-rf\b/, /\bgit\s+push\b.*--force/, /\bgit\s+reset\s+--hard\b/];
+const DANGEROUS = [
+  /\brm\s+-rf\b/,
+  /\bgit\s+push\b.*--force/,
+  /\bgit\s+reset\s+--hard\b/,
+  /(^|\s)--no-verify(\s|$)/,
+  /\bgit\s+commit\b[^|;&]*\s-[a-zA-Z]*n[a-zA-Z]*(\s|$)/,
+  /\bHUSKY=0\b/,
+];
 
 const block = (msg) => { console.error(msg); process.exit(2); };
 
@@ -20,6 +27,6 @@ if (ti.file_path) {
     block(`Chặn: ${p} là file generated/secret. Hãy hỏi người dùng nếu thật sự cần sửa.`);
 }
 if (input.tool_name === "Bash" && ti.command && DANGEROUS.some((r) => r.test(ti.command)))
-  block("Chặn: lệnh nguy hiểm (rm -rf / force push / reset --hard). Hãy xin xác nhận từ người dùng.");
+  block("Chặn: lệnh nguy hiểm (rm -rf / force push / reset --hard / bypass git hook). Hãy xin xác nhận từ người dùng.");
 
 process.exit(0);

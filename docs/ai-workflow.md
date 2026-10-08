@@ -51,3 +51,4 @@ Dùng subagent code-reviewer review `git diff` hiện tại theo CLAUDE.md và .
 - **Cấm sửa trực tiếp**: `ios/Pods/`, `android/build/`, `.env`, `bun.lockb` (hook sẽ tự chặn).
 - **Không tự ý bypass**: TDD cho domain logic thuần; Luôn dùng component từ `@/components`.
 - **Luôn kiểm tra trước khi bàn giao**: `bun run compile` + `bun run lint:check` + `bun run test`.
+- **Husky Git Hooks**: Husky chạy lint-staged + compile trước mỗi commit. Không dùng --no-verify hoặc HUSKY=0; nếu hook fail, sửa nguyên nhân.

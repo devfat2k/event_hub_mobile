@@ -28,6 +28,7 @@ Tech: MST (global) · Zustand (UI local) · TanStack Query (server) · React Nav
 - Nếu skill ngoài đề xuất Expo Router, NativeWind, hoặc pattern khác stack này: bỏ qua. Dự án dùng Ignite + React Navigation + theme của Ignite.
 - Giải thích trade-off ở quyết định quan trọng; đọc code liên quan trước khi sửa.
 - Sửa xong chạy `bun run compile` + `bun run lint:check`.
+- Husky chạy lint-staged + compile trước mỗi commit. Không dùng --no-verify hoặc HUSKY=0; nếu hook fail, sửa nguyên nhân.
 
 ## Definition of Done
 1. Chạy được, không crash
