@@ -5,6 +5,7 @@
  */
 import { Platform, NativeModules } from "react-native"
 import { ArgType } from "reactotron-core-client"
+import { mst } from "reactotron-mst"
 import { ReactotronReactNative } from "reactotron-react-native"
 import mmkvPlugin from "reactotron-react-native-mmkv"
 
@@ -22,6 +23,7 @@ const reactotron = Reactotron.configure({
 })
 
 reactotron.use(mmkvPlugin<ReactotronReactNative>({ storage }))
+reactotron.use(mst())
 
 if (Platform.OS !== "web") {
   reactotron.useReactNative({
@@ -137,3 +139,15 @@ declare global {
  * Now that we've setup all our Reactotron configuration, let's connect!
  */
 reactotron.connect()
+
+/**
+ * Helper hỗ trợ đăng ký MobX-State-Tree RootStore với Reactotron
+ */
+export function setReactotronRootStore(rootStore: unknown) {
+  if (__DEV__) {
+    // @ts-expect-error trackMstNode do plugin reactotron-mst thêm vào
+    reactotron.trackMstNode?.(rootStore, "RootStore")
+  }
+}
+
+export { reactotron, Reactotron }

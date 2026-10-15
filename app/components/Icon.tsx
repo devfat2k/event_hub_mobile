@@ -110,19 +110,18 @@ export function Icon(props: IconProps) {
 }
 
 export const iconRegistry = {
-  back: require("@assets/icons/back.png"),
-  bell: require("@assets/icons/bell.png"),
   caretLeft: require("@assets/icons/caretLeft.png"),
-  caretRight: require("@assets/icons/caretRight.png"),
   check: require("@assets/icons/check.png"),
-  hidden: require("@assets/icons/hidden.png"),
-  ladybug: require("@assets/icons/ladybug.png"),
-  lock: require("@assets/icons/lock.png"),
-  menu: require("@assets/icons/menu.png"),
-  more: require("@assets/icons/more.png"),
+  bell: require("@assets/icons/bell.png"),
+  caretRight: require("@assets/icons/caretRight.png"),
   settings: require("@assets/icons/settings.png"),
-  view: require("@assets/icons/view.png"),
   x: require("@assets/icons/x.png"),
+  lock: require("@assets/icons/lock.png"),
+  hidden: require("@assets/icons/hidden.png"),
+  menu: require("@assets/icons/menu.png"),
+  view: require("@assets/icons/view.png"),
+  more: require("@assets/icons/more.png"),
+  back: require("@assets/icons/back.png"),
 }
 
 const $imageStyleBase: ImageStyle = {

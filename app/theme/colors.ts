@@ -1,85 +1,167 @@
+/**
+ * EventHub Color System
+ * Primitive Color Palette & Semantic Mapping (Light Theme)
+ */
+
+export const primitives = {
+  neutral: {
+    50: "#FAFAFD",
+    100: "#F1F4F9",
+    200: "#E2E7F0",
+    300: "#CBD5E1",
+    400: "#94A3B8",
+    500: "#64748B",
+    600: "#475569",
+    700: "#334155",
+    800: "#1E293B",
+    900: "#0F172A",
+    950: "#0A0E1A",
+  },
+  primary: {
+    100: "#FFF1EE",
+    200: "#FFE4DE",
+    300: "#FFAF9B",
+    400: "#FF7F62",
+    500: "#FF5A36",
+    600: "#E04523",
+  },
+  secondary: {
+    100: "#EEF2FF",
+    200: "#E0E7FF",
+    300: "#A5B4FC",
+    400: "#6366F1",
+    500: "#4F46E5",
+  },
+  accent: {
+    teal100: "#F0FDF4",
+    teal300: "#86EFAC",
+    teal500: "#0D9488",
+    amber100: "#FEFCE8",
+    amber500: "#F59E0B",
+  },
+  error: {
+    100: "#FEF2F2",
+    400: "#F87171",
+    500: "#EF4444",
+    600: "#DC2626",
+  },
+  overlay: {
+    scrim20: "rgba(15, 23, 42, 0.20)",
+    scrim50: "rgba(10, 14, 26, 0.50)",
+    scrim80: "rgba(10, 14, 26, 0.80)",
+  },
+} as const
+
 const palette = {
-  neutral100: "#FFFFFF",
-  neutral200: "#F4F2F1",
-  neutral300: "#D7CEC9",
-  neutral400: "#B6ACA6",
-  neutral500: "#978F8A",
-  neutral600: "#564E4A",
-  neutral700: "#3C3836",
-  neutral800: "#191015",
-  neutral900: "#000000",
+  // Neutral scale
+  neutral50: primitives.neutral[50],
+  neutral100: primitives.neutral[100],
+  neutral200: primitives.neutral[200],
+  neutral300: primitives.neutral[300],
+  neutral400: primitives.neutral[400],
+  neutral500: primitives.neutral[500],
+  neutral600: primitives.neutral[600],
+  neutral700: primitives.neutral[700],
+  neutral800: primitives.neutral[800],
+  neutral900: primitives.neutral[900],
+  neutral950: primitives.neutral[950],
 
-  primary100: "#F4E0D9",
-  primary200: "#E8C1B4",
-  primary300: "#DDA28E",
-  primary400: "#D28468",
-  primary500: "#C76542",
-  primary600: "#A54F31",
+  // Primary brand palette
+  primary100: primitives.primary[100],
+  primary200: primitives.primary[200],
+  primary300: primitives.primary[300],
+  primary400: primitives.primary[400],
+  primary500: primitives.primary[500],
+  primary600: primitives.primary[600],
 
-  secondary100: "#DCDDE9",
-  secondary200: "#BCC0D6",
-  secondary300: "#9196B9",
-  secondary400: "#626894",
-  secondary500: "#41476E",
+  // Secondary palette
+  secondary100: primitives.secondary[100],
+  secondary200: primitives.secondary[200],
+  secondary300: primitives.secondary[300],
+  secondary400: primitives.secondary[400],
+  secondary500: primitives.secondary[500],
 
-  accent100: "#FFEED4",
-  accent200: "#FFE1B2",
-  accent300: "#FDD495",
-  accent400: "#FBC878",
-  accent500: "#FFBB50",
+  // Accent palette
+  accentTeal100: primitives.accent.teal100,
+  accentTeal300: primitives.accent.teal300,
+  accentTeal500: primitives.accent.teal500,
+  accentAmber100: primitives.accent.amber100,
+  accentAmber500: primitives.accent.amber500,
 
-  angry100: "#F2D6CD",
-  angry500: "#C03403",
+  // Accent compatibility aliases
+  accent100: primitives.accent.amber100,
+  accent200: "#FDE047",
+  accent300: "#FACC15",
+  accent400: "#EAB308",
+  accent500: primitives.accent.amber500,
 
-  overlay20: "rgba(25, 16, 21, 0.2)",
-  overlay50: "rgba(25, 16, 21, 0.5)",
+  // Error palette
+  error100: primitives.error[100],
+  error400: primitives.error[400],
+  error500: primitives.error[500],
+  error600: primitives.error[600],
+
+  // Error compatibility aliases
+  angry100: primitives.error[100],
+  angry500: primitives.error[500],
+
+  // Overlay scrims
+  overlay20: primitives.overlay.scrim20,
+  overlay50: primitives.overlay.scrim50,
+  overlay80: primitives.overlay.scrim80,
 } as const
 
 export const colors = {
   /**
-   * The palette is available to use, but prefer using the name.
-   * This is only included for rare, one-off cases. Try to use
-   * semantic names as much as possible.
+   * The primitive palette is available, but semantic names should be preferred.
    */
   palette,
   /**
-   * A helper for making something see-thru.
+   * Helper for transparent backgrounds.
    */
   transparent: "rgba(0, 0, 0, 0)",
   /**
-   * The default text color in many components.
+   * High-contrast primary text.
    */
-  text: palette.neutral800,
+  text: primitives.neutral[900],
   /**
-   * Secondary text information.
+   * Secondary/muted text.
    */
-  textDim: palette.neutral600,
+  textDim: primitives.neutral[600],
   /**
-   * The default color of the screen background.
+   * Root app viewport canvas.
    */
-  background: palette.neutral200,
+  background: "#F8F9FF",
   /**
-   * The default border color.
+   * Raised container surface and cards.
    */
-  border: palette.neutral400,
+  surface: "#FFFFFF",
   /**
-   * The main tinting color.
+   * Subtle perimeter borders & inputs.
    */
-  tint: palette.primary500,
+  border: primitives.neutral[200],
   /**
-   * The inactive tinting color.
+   * Core brand CTA and active tint.
    */
-  tintInactive: palette.neutral300,
+  tint: primitives.primary[500],
   /**
-   * A subtle color used for lines.
+   * Inactive tab icon & disabled touch targets.
    */
-  separator: palette.neutral300,
+  tintInactive: primitives.neutral[400],
   /**
-   * Error messages.
+   * Hairline dividers.
    */
-  error: palette.angry500,
+  separator: primitives.neutral[100],
   /**
-   * Error Background.
+   * High-contrast error label.
    */
-  errorBackground: palette.angry100,
+  error: primitives.error[600],
+  /**
+   * Input field error background.
+   */
+  errorBackground: primitives.error[100],
+  /**
+   * Modal backdrops & scrims.
+   */
+  overlay: primitives.overlay.scrim50,
 } as const

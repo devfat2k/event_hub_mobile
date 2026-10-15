@@ -1,31 +1,33 @@
-// TODO: write documentation about fonts and typography along with guides on how to add custom fonts in own
-// markdown file and add links from here
+/**
+ * EventHub Typography System
+ * Primary Font: Be Vietnam Pro (Google Fonts)
+ */
 
 import { Platform } from "react-native"
 import {
-  SpaceGrotesk_300Light as spaceGroteskLight,
-  SpaceGrotesk_400Regular as spaceGroteskRegular,
-  SpaceGrotesk_500Medium as spaceGroteskMedium,
-  SpaceGrotesk_600SemiBold as spaceGroteskSemiBold,
-  SpaceGrotesk_700Bold as spaceGroteskBold,
-} from "@expo-google-fonts/space-grotesk"
+  BeVietnamPro_300Light as beVietnamProLight,
+  BeVietnamPro_400Regular as beVietnamProRegular,
+  BeVietnamPro_500Medium as beVietnamProMedium,
+  BeVietnamPro_600SemiBold as beVietnamProSemiBold,
+  BeVietnamPro_700Bold as beVietnamProBold,
+} from "@expo-google-fonts/be-vietnam-pro"
 
 export const customFontsToLoad = {
-  spaceGroteskLight,
-  spaceGroteskRegular,
-  spaceGroteskMedium,
-  spaceGroteskSemiBold,
-  spaceGroteskBold,
+  beVietnamProLight,
+  beVietnamProRegular,
+  beVietnamProMedium,
+  beVietnamProSemiBold,
+  beVietnamProBold,
 }
 
 const fonts = {
-  spaceGrotesk: {
-    // Cross-platform Google font.
-    light: "spaceGroteskLight",
-    normal: "spaceGroteskRegular",
-    medium: "spaceGroteskMedium",
-    semiBold: "spaceGroteskSemiBold",
-    bold: "spaceGroteskBold",
+  beVietnamPro: {
+    // Cross-platform Google font optimized for Vietnamese and modern UI.
+    light: "beVietnamProLight",
+    normal: "beVietnamProRegular",
+    medium: "beVietnamProMedium",
+    semiBold: "beVietnamProSemiBold",
+    bold: "beVietnamProBold",
   },
   helveticaNeue: {
     // iOS only font.
@@ -59,13 +61,13 @@ export const typography = {
   /**
    * The primary font. Used in most places.
    */
-  primary: fonts.spaceGrotesk,
+  primary: fonts.beVietnamPro,
   /**
-   * An alternate font used for perhaps titles and stuff.
+   * An alternate font used for titles and headers.
    */
   secondary: Platform.select({ ios: fonts.helveticaNeue, android: fonts.sansSerif }),
   /**
-   * Lets get fancy with a monospace font!
+   * Monospace font for code/coupons.
    */
   code: Platform.select({ ios: fonts.courier, android: fonts.monospace }),
 }
